@@ -1,5 +1,5 @@
 # circus
-The Circus Project
+The circus.Circus Project
 
 ### Credits
 
