@@ -1,5 +1,5 @@
 # circus
-The Circus Project
+The circus.Circus Project
 
 - Simple codebase ot demo inheritance, casting and use of Abstract classes and Interfaces
 ### Credits
