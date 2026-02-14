@@ -23,7 +23,7 @@ public class Circus {
     private static void makeAnimalsTalk() {
         for (Animal a : animals) {
             System.out.println(a);
-            System.out.println(a.speak());
+            printNumberOfAnimals(a.speak());
         }
     }
 
@@ -31,18 +31,43 @@ public class Circus {
         int total = 0;
         for (Asset a : assets) {
             if (a.getValue() <= 5) {
-                System.out.println("Ignoring low value item: " + a.getValue());
+                printNumberOfAnimals("Ignoring low value item: " + a.getValue());
                 continue;
             }
             total += a.getValue();
-            System.out.println("Adding item value: " + a.getValue());
+            printNumberOfAnimals("Adding item value: " + a.getValue());
         }
         return total;
     }
 
     public static void main(String[] args) {
-        makeAnimalsTalk();
-        System.out.println("Total value of animals " + calculateAssetValue(animals));
-        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+        ArrayList<Animal> animalArrayList = new ArrayList<>(Arrays.asList(animals));
+        animalArrayList.add(new Elephant("Strong one"));
+//        printAnimals();
+//        printNumberOfAnimals("Number of animals in circus: " + animalArrayList.size());
+        Tiger sherKhan = new Tiger("Sher Khan");
+        animalArrayList.add(sherKhan);
+        Parrot bobby = new Parrot("Bobby");
+        animalArrayList.add(bobby);
+        System.out.println("position of sher khan: " + animalArrayList.indexOf(sherKhan));
+        System.out.println("Before Sorting:");
+        printAnimals(animalArrayList);
+
+        animalArrayList.sort(Animal.AnimalNameComparator);
+        System.out.println("After Sorting:");
+        printAnimals(animalArrayList);
+//        makeAnimalsTalk();
+//        System.out.println("Total value of animals " + calculateAssetValue(animals));
+//        System.out.println("Total value of equipments " + calculateAssetValue(equipments));
+    }
+
+    private static void printNumberOfAnimals(String animalArrayList) {
+        System.out.println(animalArrayList);
+    }
+
+    private static void printAnimals(ArrayList<Animal> animalArrayList) {
+        for (Animal a : animalArrayList) {
+            System.out.println(a);
+        }
     }
 }
